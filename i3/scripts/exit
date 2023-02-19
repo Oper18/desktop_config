@@ -1,0 +1,5 @@
+#!/bin/bash
+
+IDS=$(ps -A | grep display.sh | awk '{printf " "$1}')
+kill $IDS
+i3-msg exit
