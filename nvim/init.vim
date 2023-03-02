@@ -58,6 +58,10 @@ Plug 'mhinz/vim-startify'
 
 " Rust
 Plug 'rust-lang/rust.vim'
+
+" context
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-context'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
