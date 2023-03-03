@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/oper/.vim/autoload'
+let g:netrw_dirhist_6='/home/oper/.vim'
+let g:netrw_dirhist_5='/home/oper/Documents/notes'
+let g:netrw_dirhist_4='/home/oper/work/ATOM/atom/tcp'
+let g:netrw_dirhist_3='/home/oper/pet_projects/ares_online/ares_message'
+let g:netrw_dirhist_2='/home/oper/work/verum/backend-admin/.git/hooks'
+let g:netrw_dirhist_1='/home/oper/.oh-my-zsh'
