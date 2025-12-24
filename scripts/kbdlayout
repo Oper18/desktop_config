@@ -1,0 +1,17 @@
+#!/bin/bash
+
+getLayout() {
+
+  xset -q | grep LED | awk '{ print $10 }'
+
+}
+
+if [[ $(getLayout) == "00000000"  ]] ||  [[ $(getLayout) == "00000002"  ]]; then 
+
+  echo Us
+
+elif [[ $(getLayout) == "00001004"  ]] || [[ $(getLayout) == "00001006"  ]]; then
+
+  echo Ru
+
+fi
