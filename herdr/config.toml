@@ -1,0 +1,27 @@
+onboarding = false
+[terminal]
+default_shell = "/usr/bin/zsh"
+
+[remote]
+manage_ssh_config = true
+
+[keys]
+
+open_worktree = "prefix+shift+t"
+previous_workspace = "prefix+("
+next_workspace = "prefix+)"
+split_horizontal = "prefix+\""
+split_vertical = "prefix+%"
+close_tab = "prefix+&"
+previous_agent = "prefix+{"
+next_agent = "prefix+}"
+
+[theme]
+name = "kanagawa"
+
+[ui.toast]
+delivery = "herdr"
+delay_seconds = 2
+
+[ui.toast.herdr]
+position = "top-right"

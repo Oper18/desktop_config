@@ -1,30 +1,38 @@
--- local mark = require("harpoon.mark")
--- local ui = require("harpoon.ui")
+-- lua/harpoon_conf.lua (Harpoon v1)
+-- local ok_mark, mark = pcall(require, "harpoon.mark")
+-- local ok_ui, ui = pcall(require, "harpoon.ui")
+-- if not (ok_mark and ok_ui) then
+--   return
+-- end
 -- 
--- vim.keymap.set("n", "<leader>a", mark.add_file)
--- vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+-- vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "Harpoon: add file" })
+-- vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu, { desc = "Harpoon: menu" })
 -- 
--- vim.keymap.set("n", "<C-j>", function() ui.nav_file(1) end)
--- vim.keymap.set("n", "<C-k>", function() ui.nav_file(2) end)
--- vim.keymap.set("n", "<C-l>", function() ui.nav_file(3) end)
--- vim.keymap.set("n", "<C-;>", function() ui.nav_file(4) end)
+-- vim.keymap.set("n", "<C-j>", function() ui.nav_file(1) end, { desc = "Harpoon: file 1" })
+-- vim.keymap.set("n", "<C-k>", function() ui.nav_file(2) end, { desc = "Harpoon: file 2" })
+-- vim.keymap.set("n", "<C-l>", function() ui.nav_file(3) end, { desc = "Harpoon: file 3" })
+-- vim.keymap.set("n", "<C-;>", function() ui.nav_file(4) end, { desc = "Harpoon: file 4" })
 
-local harpoon = require("harpoon")
+-- lua/harpoon_conf.lua (Harpoon v2)
+local ok, harpoon = pcall(require, "harpoon")
+if not ok then
+  return
+end
 
 harpoon:setup()
 
--- Add current file
+-- Add file
 vim.keymap.set("n", "<leader>a", function()
-  harpoon:list():add()
-end)
+  harpoon:list():add() -- some examples use :append(); :add() is common in configs
+end, { desc = "Harpoon: add file" })
 
--- Toggle menu
-vim.keymap.set("n", "<C-e>", function()
+-- Open menu (pick ONE: leader or ctrl)
+vim.keymap.set("n", "<leader>h", function()
   harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
+end, { desc = "Harpoon: menu" })
 
--- Jump to files 1..4
-vim.keymap.set("n", "<C-j>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<C-k>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<C-l>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<C-;>", function() harpoon:list():select(4) end)
+-- Jump to files
+vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Harpoon: file 1" })
+vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end, { desc = "Harpoon: file 2" })
+vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end, { desc = "Harpoon: file 3" })
+vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "Harpoon: file 4" })

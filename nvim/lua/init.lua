@@ -1,11 +1,21 @@
--- require('go.format').gofmt()
--- require('go').setup()
--- 
--- local format_sync_grp = vim.api.nvim_create_augroup("GoImport", {})
--- vim.api.nvim_create_autocmd("BufWritePre", {
---   pattern = "*.go",
---   callback = function()
---     require('go.format').goimport()
---   end,
---   group = format_sync_grp,
--- })
+-- lua/init.lua
+-- Main Lua entrypoint (required by init.vim)
+
+require("settings_conf")
+require("keymaps_conf")
+
+-- Packer (plugins) must be loaded before plugin configs
+require("packer_conf")
+
+require("theme_conf")
+
+-- Plugin configs
+require("telescope_conf")
+require("nerdtree_conf")
+require("treesitter_conf")
+require("folds_conf")
+require("harpoon_conf")
+require("kulala_conf")
+require("mason_conf")
+require("lsp_conf")
+require("autopairs_conf")
